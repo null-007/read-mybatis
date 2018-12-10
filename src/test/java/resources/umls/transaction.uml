@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>resources.umls</OriginalElement>
+  <nodes>
+    <node x="0.0" y="235.0">org.apache.ibatis.transaction.managed.ManagedTransaction</node>
+    <node x="116.25" y="155.0">org.apache.ibatis.transaction.Transaction</node>
+    <node x="233.0" y="80.0">org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory</node>
+    <node x="191.0" y="235.0">org.apache.ibatis.transaction.jdbc.JdbcTransaction</node>
+    <node x="137.25" y="0.0">org.apache.ibatis.transaction.TransactionFactory</node>
+    <node x="0.0" y="80.0">org.apache.ibatis.transaction.managed.ManagedTransactionFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.apache.ibatis.transaction.jdbc.JdbcTransaction" target="org.apache.ibatis.transaction.Transaction">
+      <point x="0.0" y="-15.0" />
+      <point x="262.0" y="210.0" />
+      <point x="202.5" y="210.0" />
+      <point x="28.75" y="15.0" />
+    </edge>
+    <edge source="org.apache.ibatis.transaction.managed.ManagedTransaction" target="org.apache.ibatis.transaction.Transaction">
+      <point x="0.0" y="-15.0" />
+      <point x="85.5" y="210.0" />
+      <point x="145.0" y="210.0" />
+      <point x="-28.75" y="15.0" />
+    </edge>
+    <edge source="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" target="org.apache.ibatis.transaction.TransactionFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="106.5" y="55.0" />
+      <point x="176.5" y="55.0" />
+      <point x="-39.25" y="15.0" />
+    </edge>
+    <edge source="org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory" target="org.apache.ibatis.transaction.TransactionFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="325.0" y="55.0" />
+      <point x="255.0" y="55.0" />
+      <point x="39.25" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="703.5" y="337.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

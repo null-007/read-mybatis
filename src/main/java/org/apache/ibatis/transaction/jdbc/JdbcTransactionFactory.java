@@ -37,6 +37,11 @@ public class JdbcTransactionFactory implements TransactionFactory {
   public void setProperties(Properties props) {
   }
 
+  /**
+   * hq:为什么从指定连接获得的transaction不需要指定 事务级别和是否自动提交？？
+   * @param conn Existing database connection
+   * @return
+   */
   @Override
   public Transaction newTransaction(Connection conn) {
     return new JdbcTransaction(conn);

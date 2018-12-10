@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * mapper注册器，mapper注册到knownMappers中，并提供获取的能力
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Lasse Voss
@@ -47,6 +48,7 @@ public class MapperRegistry {
       throw new BindingException("Type " + type + " is not known to the MapperRegistry.");
     }
     try {
+      // hq：这里应该是在创建动态代理类
       return mapperProxyFactory.newInstance(sqlSession);
     } catch (Exception e) {
       throw new BindingException("Error getting mapper instance. Cause: " + e, e);

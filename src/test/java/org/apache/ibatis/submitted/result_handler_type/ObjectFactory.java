@@ -27,6 +27,13 @@ public class ObjectFactory extends DefaultObjectFactory {
 
   private static final long serialVersionUID = -8855120656740914948L;
 
+  /**
+   * hq:细化类型转换
+   * Map -> LinkedHashMap
+   * (List,Collection) -> LinkedList
+   * @param type
+   * @return
+   */
   @Override
   protected Class<?> resolveInterface(Class<?> type) {
     Class<?> classToCreate;
@@ -35,6 +42,7 @@ public class ObjectFactory extends DefaultObjectFactory {
     } else if (type == List.class || type == Collection.class) {
       classToCreate = LinkedList.class;
     } else {
+      //
       classToCreate = super.resolveInterface(type);
     }
     return classToCreate;

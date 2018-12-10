@@ -74,7 +74,8 @@ public class DefaultSqlSession implements SqlSession {
   @Override
   public <T> T selectOne(String statement, Object parameter) {
     // Popular vote was to return null on 0 results and throw exception on too many.
-    List<T> list = this.<T>selectList(statement, parameter);
+    // hq：执行sql语句的关键地方，待深入
+    List<T> list = this.<T>selectList(statement, parameter); // statement 方法名，parameter 参数
     if (list.size() == 1) {
       return list.get(0);
     } else if (list.size() > 1) {
@@ -144,8 +145,8 @@ public class DefaultSqlSession implements SqlSession {
   @Override
   public <E> List<E> selectList(String statement, Object parameter, RowBounds rowBounds) {
     try {
-      MappedStatement ms = configuration.getMappedStatement(statement);
-      return executor.query(ms, wrapCollection(parameter), rowBounds, Executor.NO_RESULT_HANDLER);
+      MappedStatement ms = configuration.getMappedStatement(statement);// ms指sql.xml中相应节点的信息，eg:<select>
+      return executor.query(ms, wrapCollection(parameter), rowBounds, Executor.NO_RESULT_HANDLER); // sql执行入口
     } catch (Exception e) {
       throw ExceptionFactory.wrapException("Error querying database.  Cause: " + e, e);
     } finally {

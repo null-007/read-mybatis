@@ -70,6 +70,7 @@ public class MapperMethod {
         break;
       }
       case SELECT:
+        // 这些分支决定了调用 defaultSession的哪些方法
         if (method.returnsVoid() && method.hasResultHandler()) {
           executeWithResultHandler(sqlSession, args);
           result = null;
@@ -80,8 +81,8 @@ public class MapperMethod {
         } else if (method.returnsCursor()) {
           result = executeForCursor(sqlSession, args);
         } else {
-          Object param = method.convertArgsToSqlCommandParam(args);
-          result = sqlSession.selectOne(command.getName(), param);
+          Object param = method.convertArgsToSqlCommandParam(args);// 通过ParamNameResolver将方法参数转换成sql的参数
+          result = sqlSession.selectOne(command.getName(), param);// name 是方法名
           if (method.returnsOptional() &&
               (result == null || !method.getReturnType().equals(result.getClass()))) {
             result = Optional.ofNullable(result);
@@ -269,6 +270,9 @@ public class MapperMethod {
     }
   }
 
+  /**
+   * hq 方法签名，更具不同签名，sql执行逻辑可能有些不同，特别是返回值
+   */
   public static class MethodSignature {
 
     private final boolean returnsMany;

@@ -87,12 +87,20 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory {
     return configuration;
   }
 
+  /**
+   * hq： session可以从指定的connection中获得，但默认是从datasource获得
+   * @param execType
+   * @param level
+   * @param autoCommit
+   * @return
+   */
   private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionIsolationLevel level, boolean autoCommit) {
     Transaction tx = null;
     try {
       final Environment environment = configuration.getEnvironment();
-      final TransactionFactory transactionFactory = getTransactionFactoryFromEnvironment(environment);
+      final TransactionFactory transactionFactory = getTransactionFactoryFromEnvironment(environment); // hq: 如何配置文件没有定义transaction，使用ManagedTransactionFactory
       tx = transactionFactory.newTransaction(environment.getDataSource(), level, autoCommit);
+      // hq：默认是CachingExcutor
       final Executor executor = configuration.newExecutor(tx, execType);
       return new DefaultSqlSession(configuration, executor, autoCommit);
     } catch (Exception e) {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>resources.umls</OriginalElement>
+  <nodes>
+    <node x="197.00000000000003" y="160.0">org.apache.ibatis.submitted.global_variables_defaults.SupportClasses.CustomObjectFactory</node>
+    <node x="219.00000000000003" y="0.0">org.apache.ibatis.reflection.factory.ObjectFactory</node>
+    <node x="389.0" y="160.0">org.apache.ibatis.submitted.result_handler_type.ObjectFactory</node>
+    <node x="198.50000000000003" y="80.0">org.apache.ibatis.reflection.factory.DefaultObjectFactory</node>
+    <node x="0.0" y="160.0">org.apache.ibatis.builder.ExampleObjectFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.apache.ibatis.reflection.factory.DefaultObjectFactory" target="org.apache.ibatis.reflection.factory.ObjectFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="org.apache.ibatis.submitted.result_handler_type.ObjectFactory" target="org.apache.ibatis.reflection.factory.DefaultObjectFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="453.0" y="135.0" />
+      <point x="339.33333333333337" y="135.0" />
+      <point x="56.33333333333337" y="15.0" />
+    </edge>
+    <edge source="org.apache.ibatis.builder.ExampleObjectFactory" target="org.apache.ibatis.reflection.factory.DefaultObjectFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="88.5" y="135.0" />
+      <point x="226.66666666666669" y="135.0" />
+      <point x="-56.33333333333334" y="15.0" />
+    </edge>
+    <edge source="org.apache.ibatis.submitted.global_variables_defaults.SupportClasses.CustomObjectFactory" target="org.apache.ibatis.reflection.factory.DefaultObjectFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="703.5" y="433.5" />
+  <SelectedNodes>
+    <node>org.apache.ibatis.submitted.result_handler_type.ObjectFactory</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

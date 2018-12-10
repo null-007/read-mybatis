@@ -87,7 +87,12 @@ public class SqlSessionFactoryBuilder {
       }
     }
   }
-    
+
+  /**
+   * hq：构建SqlSessionFactory最终都调用这个方法
+   * @param config
+   * @return
+   */
   public SqlSessionFactory build(Configuration config) {
     return new DefaultSqlSessionFactory(config);
   }

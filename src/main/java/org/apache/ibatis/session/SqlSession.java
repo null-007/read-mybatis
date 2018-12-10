@@ -77,6 +77,7 @@ public interface SqlSession extends Closeable {
   <E> List<E> selectList(String statement, Object parameter, RowBounds rowBounds);
 
   /**
+   * hq: 返回map,key由参数 mapKey指定
    * The selectMap is a special case in that it is designed to convert a list
    * of results into a Map based on one of the properties in the resulting
    * objects.
@@ -268,6 +269,7 @@ public interface SqlSession extends Closeable {
   Configuration getConfiguration();
 
   /**
+   * hq：mapper以接口形式定义，mapper和xml如何关联？？
    * Retrieves a mapper.
    * @param <T> the mapper type
    * @param type Mapper interface class

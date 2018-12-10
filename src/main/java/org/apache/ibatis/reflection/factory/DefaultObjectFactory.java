@@ -46,8 +46,10 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
   @SuppressWarnings("unchecked")
   @Override
   public <T> T create(Class<T> type, List<Class<?>> constructorArgTypes, List<Object> constructorArgs) {
+    // hq 类型预处理，返回类型标准化
     Class<?> classToCreate = resolveInterface(type);
     // we know types are assignable
+    // hq:反射的方式创建结果集
     return (T) instantiateClass(classToCreate, constructorArgTypes, constructorArgs);
   }
 
@@ -104,6 +106,15 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
     }
   }
 
+  /**
+   * hq:类型的预处理，类型转换
+   * (List,Collection,Iterable) -> ArrayList，
+   * Map -> HashMap,
+   * Set -> HashSet,
+   * SortedSet -> TreeSet
+   * @param type
+   * @return
+   */
   protected Class<?> resolveInterface(Class<?> type) {
     Class<?> classToCreate;
     if (type == List.class || type == Collection.class || type == Iterable.class) {
