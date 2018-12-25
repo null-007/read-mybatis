@@ -13,5 +13,4 @@ import org.apache.ibatis.hq.Dao.SysDept;
 public interface SysDeptMapper {
 
     SysDept get(Integer id);
-
 }

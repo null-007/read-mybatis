@@ -89,6 +89,7 @@ public class MapperRegistry {
   }
 
   /**
+   * 通过packageName批量 add Mapper接口
    * @since 3.2.2
    */
   public void addMappers(String packageName, Class<?> superType) {

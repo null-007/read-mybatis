@@ -317,7 +317,7 @@ public class DefaultSqlSession implements SqlSession {
   private boolean isCommitOrRollbackRequired(boolean force) {
     return (!autoCommit && dirty) || force;
   }
-
+  // hq:参数封装，Map<collection/list/array, object>
   private Object wrapCollection(final Object object) {
     if (object instanceof Collection) {
       StrictMap<Object> map = new StrictMap<>();

@@ -1,5 +1,6 @@
 package org.apache.ibatis.hq.Dao;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  * @email 1308607536@qq.com
  * @date 2018/12/1014:43
  */
-public class SysDept {
+public class SysDept implements Serializable{
 
     private Integer id;
     private String name;

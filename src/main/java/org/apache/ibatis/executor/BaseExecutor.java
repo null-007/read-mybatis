@@ -194,7 +194,7 @@ public abstract class BaseExecutor implements Executor {
   @Override
   public CacheKey createCacheKey(MappedStatement ms, Object parameterObject, RowBounds rowBounds, BoundSql boundSql) {
     if (closed) {
-      throw new ExecutorException("Executor was closed.");
+      throw new ExecutorException("Executor was closed."); // Mybatis缓存功能不能关闭
     }
     CacheKey cacheKey = new CacheKey();
     cacheKey.update(ms.getId());

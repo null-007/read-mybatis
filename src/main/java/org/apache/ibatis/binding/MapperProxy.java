@@ -46,16 +46,18 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     try {
-      if (Object.class.equals(method.getDeclaringClass())) {// 诡异的分支
+      if (Object.class.equals(method.getDeclaringClass())) {// 诡异的分支,一般不会执行
         return method.invoke(this, args);
-      } else if (isDefaultMethod(method)) { // 执行 default method 意义？
+      } else if (isDefaultMethod(method)) { // 执行 default method 意义？接口的default 方法关注一下
         return invokeDefaultMethod(proxy, method, args);
       }
     } catch (Throwable t) {
       throw ExceptionUtil.unwrapThrowable(t);
     }
-    // hq:缓存 mapperMethod  final很奇怪？？
+    // 缓存MapperMethod，因为MapperMethod的构建还是比较复杂的。但是为什么用final修饰呢
     final MapperMethod mapperMethod = cachedMapperMethod(method);
+    // 这段代码才是真正在执行Mapper的sql语句，
+    // 也就是接下去你要深入理解mybatis是如何执行mapper.xml中的代码的，就需要理解MapperMethod.class
     return mapperMethod.execute(sqlSession, args);
   }
 

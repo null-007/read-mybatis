@@ -24,19 +24,19 @@ import java.io.InputStream;
  */
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         String resource = "resources/config/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
 
+
         SqlSession session = sqlSessionFactory.openSession();
-        try {
-            SysDeptMapper mapper = session.getMapper(SysDeptMapper.class);
-            SysDept sysDept = mapper.get(3);
-            System.out.println(sysDept);
-        } finally {
-            session.close();
-        }
+        SysDeptMapper mapper = session.getMapper(SysDeptMapper.class);
+        SysDept sysDept = mapper.get(4);
+        System.out.println(sysDept);
+
+
+
     }
 }

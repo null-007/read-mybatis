@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.apache.ibatis.hq.mapper.SysDeptMapper">
+    <cache
+    readOnly="true"
+    >
+
+    </cache>
 
     <resultMap id="mySysDept" type="org.apache.ibatis.hq.Dao.SysDept">
         <id property="id" column="id"/>
